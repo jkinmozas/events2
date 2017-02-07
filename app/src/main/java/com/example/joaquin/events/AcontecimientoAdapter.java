@@ -29,16 +29,24 @@ public class AcontecimientoAdapter
 
         private TextView TextView_nombre;
         private TextView TextView_id;
+        private TextView TextView_fechaIncio;
+        private TextView TextView_fechaFin;
 
         public AcontecimientoViewHolder(View itemView) {
             super(itemView);
-            TextView_id = (TextView) itemView.findViewById(R.id.TextView_id);
+            // TextView_id = (TextView) itemView.findViewById(R.id.TextView_id);
             TextView_nombre = (TextView) itemView.findViewById(R.id.TextView_nombre);
+            TextView_fechaIncio = (TextView) itemView.findViewById(R.id.TextView_fecha_inicio);
+            TextView_fechaFin = (TextView) itemView.findViewById(R.id.TextView_fecha_fin);
+
         }
 
         public void AcontecimientoBind(AcontecimientoItem item) {
-            TextView_id.setText(item.getId());
             TextView_nombre.setText(item.getNombre());
+            TextView_fechaIncio.setText(item.getFechaIncio());
+            if(item.getFechaIncio()!=item.getFechaFin()){
+                TextView_fechaFin.setText(item.getFechaFin());
+            }
         }
     }
 

@@ -23,10 +23,14 @@ public class VerAcontecimientosActivity extends AppCompatActivity {
     private static final String ACTIVITY = "StartCreate";
     private TextView tv;
     private ImageView iv;
+    private Context myContext;
+    private String id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_acontecimientos);
+        myContext = this;
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -36,9 +40,29 @@ public class VerAcontecimientosActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
+
         SharedPreferences prefs =
                 getSharedPreferences("Ajustes", Context.MODE_PRIVATE);
-        String id = prefs.getString("id","0");
+        String id = prefs.getString("id","Error Share");
+        FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fabMostrarAcon);
+        fab.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+            BBDDSQLiteHelper usbdh = new BBDDSQLiteHelper(myContext, Environment.getExternalStorageDirectory()+"Events.db",null,1);
+                SQLiteDatabase db = usbdh.getReadableDatabase();
+                String[]argsID = new String[]{id};
+                Cursor cursor = db.rawQuery("SELECT * FROM evento WHERE id=?",argsID);
+                if (cursor.moveToFirst()){
+                    startActivity(new Intent(getApplicationContext(),EventosActivity.class));
+
+                }   else{
+                    Snackbar.make (view,"No hay eventos",Snackbar.LENGTH_LONG).setAction("Action", null).show();
+
+                }
+
+            }
+        });
         BBDDSQLiteHelper usdbh = new BBDDSQLiteHelper(this, Environment.getExternalStorageDirectory()+"/events.db",null,1);
         //instancia de la bd
         SQLiteDatabase bd = usdbh.getReadableDatabase();

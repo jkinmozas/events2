@@ -9,10 +9,31 @@ import android.view.View;
 public class AcontecimientoItem {
     private String id;
     private String nombre;
+    private String fechaIncio;
+    private String fechaFin;
 
-    public AcontecimientoItem(String id, String nombre) {
+
+    public AcontecimientoItem(String id, String nombre, String fechaIncio, String fechaFin) {
         this.id = id;
         this.nombre = nombre;
+        this.fechaIncio= fechaIncio;
+        this.fechaFin= fechaFin;
+    }
+
+    public String getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(String fechaFin) {
+        this.fechaFin = fechaFin;
+    }
+
+    public String getFechaIncio() {
+        return fechaIncio;
+    }
+
+    public void setFechaIncio(String fechaIncio) {
+        this.fechaIncio = fechaIncio;
     }
 
     public String getNombre() {

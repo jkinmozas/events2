@@ -35,6 +35,10 @@
             android:name=".VerAcontecimientosActivity"
             android:label="@string/title_activity_ver_acontecimientos"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".EventosActivity"
+            android:label="@string/title_activity_eventos"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
