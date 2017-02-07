@@ -44,7 +44,7 @@ public class VerAcontecimientosActivity extends AppCompatActivity {
 
         SharedPreferences prefs =
                 getSharedPreferences("Ajustes", Context.MODE_PRIVATE);
-        String id = prefs.getString("id","Error Share");
+        id = prefs.getString("id","Error en Shared");
         FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fabMostrarAcon);
         fab.setOnClickListener(new View.OnClickListener(){
             @Override
