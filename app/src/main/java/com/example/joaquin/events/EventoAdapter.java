@@ -17,10 +17,10 @@ public class EventoAdapter extends ArrayAdapter<EventoItem> {
     private final ArrayList<EventoItem> items;
     private final Context context;
 
-    public EventoAdapter(Context context, int textViewResourceId, ArrayList<EventoItem> items, Context context1){
+    public EventoAdapter(Context context, int textViewResourceId, ArrayList<EventoItem> items){
 super(context,textViewResourceId,items);
         this.items = items;
-        this.context = context1;
+        this.context = context;
     }
     @Override
     public View getView(int posicion, View convertView, ViewGroup parent){
