@@ -62,6 +62,7 @@ public class ListadoEventsFragment extends ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View rootView = inflater.inflate(R.layout.fragment_listado_eventos , container , false);
+        listView = (ListView) rootView.findViewById(android.R.id.list);
         return rootView;
     }
 
@@ -75,7 +76,7 @@ public class ListadoEventsFragment extends ListFragment {
         SharedPreferences prefs = getActivity().getSharedPreferences("Ajustes", Context.MODE_PRIVATE);
 
         idAcon = prefs.getString("id", "Error con Shared");
-        BBDDSQLiteHelper usdbh = new BBDDSQLiteHelper(getActivity(), Environment.getExternalStorageDirectory()+"Events.db", null, 1);
+        BBDDSQLiteHelper usdbh = new BBDDSQLiteHelper(getActivity(), Environment.getExternalStorageDirectory()+"/Events.db",null,1);
         SQLiteDatabase db = usdbh.getReadableDatabase();
 
         String[] argsId =new String[]{idAcon};
@@ -115,6 +116,7 @@ public class ListadoEventsFragment extends ListFragment {
         if(context instanceof OnFragmentInteractionListener){
             mListener = (OnFragmentInteractionListener) context;
         }else{
+
             throw  new RuntimeException(context.toString() + "must implement OnFragmentIteractionListener");
 
         }

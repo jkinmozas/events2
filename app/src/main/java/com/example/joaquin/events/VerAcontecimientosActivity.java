@@ -49,7 +49,7 @@ public class VerAcontecimientosActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-            BBDDSQLiteHelper usbdh = new BBDDSQLiteHelper(myContext, Environment.getExternalStorageDirectory()+"Events.db",null,1);
+            BBDDSQLiteHelper usbdh = new BBDDSQLiteHelper(myContext, Environment.getExternalStorageDirectory()+"/Events.db",null,1);
                 SQLiteDatabase db = usbdh.getReadableDatabase();
                 String[]argsID = new String[]{id};
                 Cursor cursor = db.rawQuery("SELECT * FROM evento WHERE id=?",argsID);
@@ -63,7 +63,7 @@ public class VerAcontecimientosActivity extends AppCompatActivity {
 
             }
         });
-        BBDDSQLiteHelper usdbh = new BBDDSQLiteHelper(this, Environment.getExternalStorageDirectory()+"/events.db",null,1);
+        BBDDSQLiteHelper usdbh = new BBDDSQLiteHelper(this, Environment.getExternalStorageDirectory()+"/Events.db",null,1);
         //instancia de la bd
         SQLiteDatabase bd = usdbh.getReadableDatabase();
 

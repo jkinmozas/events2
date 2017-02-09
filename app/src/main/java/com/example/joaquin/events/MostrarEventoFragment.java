@@ -14,10 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class MostrarEventoFragment extends Fragment{
+
+public class MostrarEventoFragment extends Fragment {
 
     private static final String ACTIVITY = "StartCreate";
     private TextView tv;
@@ -35,7 +33,7 @@ public class MostrarEventoFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mostrar_evento, container, false);
+        return inflater.inflate(R.layout.fragment_mostrar_eventos, container, false);
     }
     @Override
     public void onStart(){
@@ -49,7 +47,7 @@ public class MostrarEventoFragment extends Fragment{
     public void updateView(String id){
         //leer de la base de datos.
         BBDDSQLiteHelper usdbh =
-                new BBDDSQLiteHelper(getActivity(), Environment.getExternalStorageDirectory()+"/Eventgo.db", null, 1);
+                new BBDDSQLiteHelper(getActivity(), Environment.getExternalStorageDirectory()+"/Events.db", null, 1);
         //instancia la db.
         SQLiteDatabase db = usdbh.getReadableDatabase();
 
@@ -59,7 +57,7 @@ public class MostrarEventoFragment extends Fragment{
         //Nos aseguramos de que existe al menos un registro
         if (cursor.moveToFirst()) {
             //Recorremos el cursor hasta que no haya más registros
-            LinearLayout layoutPrincipal = (LinearLayout) getActivity().findViewById(R.id.mostrarEventosLayout);
+            LinearLayout layoutPrincipal = (LinearLayout) getActivity().findViewById(R.id.mostrarEventoLayout);
             layoutPrincipal.setOrientation(LinearLayout.VERTICAL);
             do{
                 String nombreEvento = cursor.getString(cursor.getColumnIndex("nombre"));
@@ -74,16 +72,16 @@ public class MostrarEventoFragment extends Fragment{
                 String latitud = cursor.getString(cursor.getColumnIndex("latitud"));
                 //borramos la lista para que la vuelva a pintar
                 layoutPrincipal.removeAllViewsInLayout();
-                if (!nombreEvento.isEmpty()) crearElementoVista(nombreEvento, R.drawable.ic_account_balance_black_24dp, layoutPrincipal);
-                if(!descripcion.isEmpty()) crearElementoVista(descripcion, R.drawable.ic_description_black_24dp, layoutPrincipal);
-                if(!inicio.isEmpty()) crearElementoVista(inicio, R.drawable.ic_date_range_black_24dp, layoutPrincipal);
-                if(!fin.isEmpty()) crearElementoVista(fin, R.drawable.ic_date_range_black_24dp, layoutPrincipal);
-                if(!direccion.isEmpty()) crearElementoVista(direccion, R.drawable.ic_markunread_mailbox_black_24dp, layoutPrincipal);
-                if(!localidad.isEmpty()) crearElementoVista(localidad, R.drawable.ic_markunread_mailbox_black_24dp, layoutPrincipal);
-                if(!codPostal.isEmpty()) crearElementoVista(codPostal, R.drawable.ic_date_range_black_24dp, layoutPrincipal);
-                if(!provincia.isEmpty()) crearElementoVista(provincia, R.drawable.ic_account_balance_black_24dp, layoutPrincipal);
-                if(!longitud.isEmpty()) crearElementoVista(longitud, R.drawable.ic_picture_in_picture_black_24dp, layoutPrincipal);
-                if(!latitud.isEmpty()) crearElementoVista(latitud, R.drawable.ic_picture_in_picture_black_24dp, layoutPrincipal);
+                if (!nombreEvento.isEmpty()) crearElementoVista(nombreEvento, R.drawable.name_24, layoutPrincipal);
+                if(!descripcion.isEmpty()) crearElementoVista(descripcion, R.drawable.createnew_24, layoutPrincipal);
+                if(!inicio.isEmpty()) crearElementoVista(inicio, R.drawable.datefrom_24, layoutPrincipal);
+                if(!fin.isEmpty()) crearElementoVista(fin, R.drawable.dateto_24, layoutPrincipal);
+                if(!direccion.isEmpty()) crearElementoVista(direccion, R.drawable.road_24, layoutPrincipal);
+                if(!localidad.isEmpty()) crearElementoVista(localidad, R.drawable.map_24, layoutPrincipal);
+                if(!codPostal.isEmpty()) crearElementoVista(codPostal, R.drawable.regioncode_24, layoutPrincipal);
+                if(!provincia.isEmpty()) crearElementoVista(provincia, R.drawable.worldwidelocation_24, layoutPrincipal);
+                if(!longitud.isEmpty()) crearElementoVista(longitud, R.drawable.longitude_24, layoutPrincipal);
+                if(!latitud.isEmpty()) crearElementoVista(latitud, R.drawable.latitude_24, layoutPrincipal);
             }while(cursor.moveToNext());
         }
     }
