@@ -38,11 +38,11 @@ public class ListadoAcontecimientosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
+        //recogemos si hay algun acontecimiento guardado
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         boolean isSelect = pref.getBoolean("guardarAcontecimiento", false);
         if (isSelect) {
-
+        //Si la opcion esta activa y hay acontecimiento guardado pasamos a ver ese acontecimiento
             SharedPreferences prefs = getSharedPreferences("Ajustes", Context.MODE_PRIVATE);
             String id = prefs.getString("id","");
             if (!id.equals("")){
@@ -145,7 +145,7 @@ public class ListadoAcontecimientosActivity extends AppCompatActivity {
                     String id = cursor.getString(cursor.getColumnIndex("id"));
                     String nombreAcon = cursor.getString(cursor.getColumnIndex("nombre"));
                     String inicioNoFormat = cursor.getString(cursor.getColumnIndex("inicio"));
-                    //formato
+                    //formato de la fecha
                     SimpleDateFormat dateParse = new SimpleDateFormat("yyyymmddhhmm");
                     SimpleDateFormat dateFotmat = new SimpleDateFormat("dd/MM/yyyy");
                     Date date = null;
@@ -174,7 +174,7 @@ public class ListadoAcontecimientosActivity extends AppCompatActivity {
                     public void onClick(View v){
                         int position = recyclerView.getChildAdapterPosition(v);
                         // Acción al pulsar el elemento
-                        //Para pasar los datos al fichero de Ajustes
+                        //Para pasar los datos al shared de Ajustes
                         SharedPreferences prefs =
                                 getSharedPreferences("Ajustes", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = prefs.edit();
@@ -182,7 +182,6 @@ public class ListadoAcontecimientosActivity extends AppCompatActivity {
                         //System.out.println(items.get(position));
                         //System.out.println(items.get(position).getId());
                         editor.commit();
-                        //abrimos la nueva actividad
                         startActivity(new Intent(ListadoAcontecimientosActivity.this, VerAcontecimientosActivity.class));
                         MyLog.d(ACTIVITY, "Click en RecyclerView");
 

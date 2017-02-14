@@ -17,14 +17,16 @@ public class LogoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logo);
+
+       //recoge el idioma
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String idiomaACargar = prefs.getString("ListaDeLenguajes","default");
-
+        //Pone el idioma
         Locale locale = new Locale(idiomaACargar);
         Configuration cfg = new Configuration();
         cfg.locale = locale;
         getBaseContext().getResources().updateConfiguration(cfg,getBaseContext().getResources().getDisplayMetrics());
-
+        //Timer para el logo
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
