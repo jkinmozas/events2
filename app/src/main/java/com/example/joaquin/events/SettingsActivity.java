@@ -127,7 +127,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
     protected void onDestroy(){
         super.onDestroy();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences( SettingsActivity.this);
-        String idiomaACargar = prefs.getString("idioma", "default");//idioma
+        String idiomaACargar = prefs.getString("ListaDeLenguajes", "default");//idioma
         Locale locale = new Locale(idiomaACargar);
         Locale.setDefault(locale);
         Configuration cfg = new Configuration();
@@ -188,7 +188,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             // to their values. When their values change, their summaries are
             // updated to reflect the new value, per the Android Design
             // guidelines.
-            bindPreferenceSummaryToValue(findPreference("idioma"));
+            bindPreferenceSummaryToValue(findPreference("ListaDeLenguajes"));
 
         }
 

@@ -86,7 +86,7 @@ public class ListadoEventsFragment extends ListFragment {
         SQLiteDatabase db = usdbh.getReadableDatabase();
 
         String[] argsId =new String[]{idAcon};
-        Cursor cursor = db.rawQuery("SELECT id, nombre FROM evento WHERE id=? ", argsId);
+        Cursor cursor = db.rawQuery("SELECT id, nombre FROM evento WHERE id_acontecimiento=? ", argsId);
 
         //miramos si existe algo
         if(cursor.moveToFirst()){

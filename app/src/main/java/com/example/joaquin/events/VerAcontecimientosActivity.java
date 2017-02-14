@@ -61,7 +61,7 @@ public class VerAcontecimientosActivity extends AppCompatActivity {
             BBDDSQLiteHelper usbdh = new BBDDSQLiteHelper(myContext, Environment.getExternalStorageDirectory()+"/Events.db",null,1);
                 SQLiteDatabase db = usbdh.getReadableDatabase();
                 String[]argsID = new String[]{id};
-                Cursor cursor = db.rawQuery("SELECT * FROM evento WHERE id=?",argsID);
+                Cursor cursor = db.rawQuery("SELECT * FROM evento WHERE id_acontecimiento=?",argsID);
                 if (cursor.moveToFirst()){
                     startActivity(new Intent(getApplicationContext(),EventosActivity.class));
 
