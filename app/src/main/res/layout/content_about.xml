@@ -13,17 +13,17 @@
     tools:context="com.example.joaquin.events.AboutActivity"
     tools:showIn="@layout/activity_about">
     <TextView
-        android:text="Desarrollado por Joaquin Mozas"
+        android:text="@string/devby"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="86dp"
         android:id="@+id/textView2"
-        tools:text="Desarrollado por Joaquin Mozas"
+        tools:text="@string/devby"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:text="Contacto"
+        android:text="@string/contact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
@@ -32,7 +32,7 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:text="Licencia"
+        android:text="@string/license"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView3"
@@ -41,7 +41,7 @@
         android:id="@+id/textView4" />
 
     <TextView
-        android:text="jkinmozas@gmail.com"
+        android:text="@string/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="34dp"
@@ -51,7 +51,7 @@
         android:layout_toEndOf="@+id/textView3" />
 
     <TextView
-        android:text="GPLv3"
+        android:text="@string/licenseType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView4"

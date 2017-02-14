@@ -4,8 +4,8 @@
         <item>Español</item>
         <item>English</item>
     </string-array>
-    <string-array name="LanguageCode">
-        <item>es</item>
-        <item>en</item>
-    </string-array>
-</resources>
+<string-array name="LanguageCode">
+<item>es</item>
+<item>en</item>
+</string-array>
+    </resources>

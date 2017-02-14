@@ -23,7 +23,7 @@ tools:showIn="@layout/activity_anadir_acontecimiento">
         android:hint="ID " />
 
     <Button
-        android:text="Añadir"
+        android:text="@string/add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/buttonAnadir"
