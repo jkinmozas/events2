@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +28,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.prefs.PreferenceChangeEvent;
 
 
 public class ListadoAcontecimientosActivity extends AppCompatActivity {
@@ -36,6 +38,17 @@ public class ListadoAcontecimientosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean isSelect = pref.getBoolean("guardarAcontecimiento", false);
+        if (isSelect) {
+
+            SharedPreferences prefs = getSharedPreferences("Ajustes", Context.MODE_PRIVATE);
+            String id = prefs.getString("id","");
+            if (id.equals("")){
+                this.startActivity(new Intent(this, VerAcontecimientosActivity.class));
+            }
+        }
         setContentView(R.layout.activity_listado_acontecimientos);
         //creamos la toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -46,13 +59,12 @@ public class ListadoAcontecimientosActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
+        //floating button
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                //          .setAction("Action", null).show();
+
                 startActivity(new Intent (getApplicationContext(), AnadirAcontecimientoActivity.class));
             }
         });
@@ -85,45 +97,6 @@ public class ListadoAcontecimientosActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));        });*/
 
     }
-    //LOG
-    @Override
-    protected void onStart() {
-        MyLog.d(ACTIVITY,"onStart"); //creación del log del onStart
-        super.onStart();
-    }
-
-    @Override
-    protected void onResume() {
-        MyLog.d(ACTIVITY,"onResume"); //creación del log del onResume
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        MyLog.d(ACTIVITY,"onPause"); //creación del log del onPause
-        super.onPause();
-    }
-
-    @Override
-    protected void onStop() {
-        MyLog.d(ACTIVITY,"onStop"); //creación del log del onStop
-        super.onStop();
-    }
-
-    @Override
-    protected void onRestart() {
-        MyLog.d(ACTIVITY,"onRestart"); //creación del log del onRestart
-        super.onRestart();
-    }
-
-    @Override
-    protected void onDestroy() {
-        MyLog.d(ACTIVITY,"onDestroy"); //creación del log del onDestroy
-
-        super.onDestroy();
-    }
-    //FIN LOG
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -135,6 +108,10 @@ public class ListadoAcontecimientosActivity extends AppCompatActivity {
             case R.id.acerca_de:
                 Intent intent = new Intent(this, AboutActivity.class);
                 this.startActivity(intent);
+                break;
+            case R.id.configutation:
+                Intent intent2 = new Intent(this, SettingsActivity.class);
+                this.startActivity(intent2);
                 break;
 
             default:
@@ -202,8 +179,8 @@ public class ListadoAcontecimientosActivity extends AppCompatActivity {
                                 getSharedPreferences("Ajustes", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = prefs.edit();
                         editor.putString("id", items.get(position).getId());
-                        System.out.println(items.get(position));
-                        System.out.println(items.get(position).getId());
+                        //System.out.println(items.get(position));
+                        //System.out.println(items.get(position).getId());
                         editor.commit();
                         //abrimos la nueva actividad
                         startActivity(new Intent(ListadoAcontecimientosActivity.this, VerAcontecimientosActivity.class));
@@ -224,5 +201,45 @@ public class ListadoAcontecimientosActivity extends AppCompatActivity {
             }
         }
     }
+    //LOG
+    @Override
+    protected void onStart() {
+        MyLog.d(ACTIVITY,"onStart"); //creación del log del onStart
+        super.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        MyLog.d(ACTIVITY,"onResume"); //creación del log del onResume
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        MyLog.d(ACTIVITY,"onPause"); //creación del log del onPause
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        MyLog.d(ACTIVITY,"onStop"); //creación del log del onStop
+        super.onStop();
+    }
+
+    @Override
+    protected void onRestart() {
+        MyLog.d(ACTIVITY,"onRestart"); //creación del log del onRestart
+        super.onRestart();
+    }
+
+    @Override
+    protected void onDestroy() {
+        MyLog.d(ACTIVITY,"onDestroy"); //creación del log del onDestroy
+
+        super.onDestroy();
+    }
+    //FIN LOG
+
+
 
 }

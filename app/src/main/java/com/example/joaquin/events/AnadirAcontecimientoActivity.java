@@ -62,7 +62,7 @@ public class AnadirAcontecimientoActivity extends AppCompatActivity  {
                     MyLog.d("hola"," ENtro al if de empty");
                 } else {
                     if (!connection()) {
-                        Snackbar.make(v, "conexion no disponible", Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+                        Snackbar.make(v, "Conexion no disponible", Snackbar.LENGTH_SHORT).setAction("Action", null).show();
                         MyLog.d("hola"," ENtro al if de conexion");
                     } else{
                         MyLog.d("build", " " + Build.VERSION.SDK_INT);

@@ -50,6 +50,12 @@ public class ListadoEventsFragment extends ListFragment {
 
     }
     @Override
+    public  void onStart(){
+        super.onStart();
+        if(getFragmentManager().findFragmentById(R.id.fragmentMostrarEvento)!=null){
+            getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        }
+    }
 
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -69,7 +75,7 @@ public class ListadoEventsFragment extends ListFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState){
         super.onActivityCreated(savedInstanceState);
-
+        //se usan difetentes listas de item dependiendo de la version
         int layout = Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB? android.R.layout.simple_list_item_activated_1 : android.R.layout.simple_list_item_1;
 
 

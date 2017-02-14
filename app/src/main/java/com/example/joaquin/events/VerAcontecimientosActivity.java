@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ContextThemeWrapper;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -25,6 +26,7 @@ public class VerAcontecimientosActivity extends AppCompatActivity {
     private ImageView iv;
     private Context myContext;
     private String id;
+    private Button maps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,13 @@ public class VerAcontecimientosActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 onBackPressed();
+            }
+        });
+        maps = (Button) findViewById(R.id.mapas);
+        maps.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View v){
+                startActivity(new Intent(myContext, MapsActivity.class));
             }
         });
 
@@ -107,14 +116,17 @@ public class VerAcontecimientosActivity extends AppCompatActivity {
                 if(!localidad.isEmpty()) crearElementoVista(localidad, R.drawable.map_24, layoutPrincipal);
                 if(!codPostal.isEmpty()) crearElementoVista(codPostal, R.drawable.regioncode_24, layoutPrincipal);
                 if(!provincia.isEmpty()) crearElementoVista(provincia, R.drawable.worldwidelocation_24, layoutPrincipal);
-                if(!longitud.isEmpty()) crearElementoVista(longitud, R.drawable.longitude_24, layoutPrincipal);
-                if(!latitud.isEmpty()) crearElementoVista(latitud, R.drawable.latitude_24, layoutPrincipal);
+               // if(!longitud.isEmpty()) crearElementoVista(longitud, R.drawable.longitude_24, layoutPrincipal);
+               // if(!latitud.isEmpty()) crearElementoVista(latitud, R.drawable.latitude_24, layoutPrincipal);
                 if(!telefono.isEmpty()) crearElementoVista(telefono, R.drawable.phone_24, layoutPrincipal);
                 if(!email.isEmpty()) crearElementoVista(email, R.drawable.email_24, layoutPrincipal);
                 if(!web.isEmpty()) crearElementoVista(web , R.drawable.link_24, layoutPrincipal);
                 if(!facebook.isEmpty()) crearElementoVista(facebook, R.drawable.facebook_24, layoutPrincipal);
                 if(!twitter.isEmpty()) crearElementoVista(twitter, R.drawable.twitter_24, layoutPrincipal);
                 if(!instagram.isEmpty()) crearElementoVista(instagram, R.drawable.instagram_24,layoutPrincipal);
+                if(longitud.isEmpty()||latitud.isEmpty()){
+                maps.setVisibility(View.INVISIBLE);
+                }
             }while(cursor.moveToNext());
 
         }

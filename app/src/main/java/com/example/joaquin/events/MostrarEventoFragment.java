@@ -54,7 +54,7 @@ public class MostrarEventoFragment extends Fragment {
         String[] argsID = new String[] {id};
         Cursor cursor = db.rawQuery(" SELECT * FROM evento WHERE id=? ", argsID);
 
-        //Nos aseguramos de que existe al menos un registro
+        //Comprobar que existe
         if (cursor.moveToFirst()) {
             //Recorremos el cursor hasta que no haya más registros
             LinearLayout layoutPrincipal = (LinearLayout) getActivity().findViewById(R.id.mostrarEventoLayout);
