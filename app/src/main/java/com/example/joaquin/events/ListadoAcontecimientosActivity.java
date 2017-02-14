@@ -45,7 +45,7 @@ public class ListadoAcontecimientosActivity extends AppCompatActivity {
 
             SharedPreferences prefs = getSharedPreferences("Ajustes", Context.MODE_PRIVATE);
             String id = prefs.getString("id","");
-            if (id.equals("")){
+            if (!id.equals("")){
                 this.startActivity(new Intent(this, VerAcontecimientosActivity.class));
             }
         }
