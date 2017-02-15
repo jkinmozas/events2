@@ -169,7 +169,7 @@ public class AnadirAcontecimientoAsyncTask extends AsyncTask<String, String, Str
             if(existAcon){
                 SharedPreferences prefs =
                         myContext.getSharedPreferences("Ajustes",Context.MODE_PRIVATE);
-
+                //pasamos la id al shared
                 SharedPreferences.Editor editor = prefs.edit();
                 editor.putString("id", id);
                 editor.commit();
@@ -188,7 +188,7 @@ public class AnadirAcontecimientoAsyncTask extends AsyncTask<String, String, Str
             e.printStackTrace();
 
         }
-//Fin
+
 
     }
 

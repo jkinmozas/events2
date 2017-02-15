@@ -21,9 +21,7 @@ public class AcontecimientoAdapter
     private List<AcontecimientoItem> items;
     private View.OnClickListener listener;
 
-    // Clase interna:
-    // Se implementa el ViewHolder que se encargará
-    // de almacenar la vista del elemento y sus datos
+    //View holder almacena la vista y sus datos
     public static class AcontecimientoViewHolder
             extends RecyclerView.ViewHolder {
 
@@ -32,6 +30,7 @@ public class AcontecimientoAdapter
         private TextView TextView_fechaIncio;
         private TextView TextView_fechaFin;
 
+        //
         public AcontecimientoViewHolder(View itemView) {
             super(itemView);
             // TextView_id = (TextView) itemView.findViewById(R.id.TextView_id);
@@ -50,13 +49,13 @@ public class AcontecimientoAdapter
         }
     }
 
-    // Contruye el objeto adaptador recibiendo la lista de datos
+    // recibe los datos y construye el adaptador
     public AcontecimientoAdapter(@NonNull List<AcontecimientoItem> items) {
         this.items = items;
     }
 
-    // Se encarga de crear los nuevos objetos ViewHolder necesarios para los elementos de la colección.
-    // Infla la vista del layout y crea y devuelve el objeto ViewHolder
+
+    //crea los nuevos viewHolder para los elementos, infla la vista crea y devuelve el viewholder
     @Override
     public AcontecimientoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View row = LayoutInflater.from(parent.getContext())
@@ -66,20 +65,20 @@ public class AcontecimientoAdapter
         return avh;
     }
 
-    // Se encarga de actualizar los datos de un ViewHolder ya existente.
+    // Se encarga de actualizar los datos de un ViewHolder
     @Override
     public void onBindViewHolder(AcontecimientoViewHolder viewHolder, int position) {
         AcontecimientoItem item = items.get(position);
         viewHolder.AcontecimientoBind(item);
     }
 
-    // Indica el número de elementos de la colección de datos.
+
     @Override
     public int getItemCount() {
         return items.size();
     }
 
-    // Asigna un listener
+    // listener
     public void setOnClickListener(View.OnClickListener listener) {
         this.listener = listener;
     }

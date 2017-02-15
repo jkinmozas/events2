@@ -124,6 +124,10 @@ public class ListadoAcontecimientosActivity extends AppCompatActivity {
     public void onBackPressed(){
         this.finish();
     }
+
+
+    //metodo para llenar la lista de acontecimientos
+
     private void rellenarLista(){
         items = new ArrayList<AcontecimientoItem>();
         //creamos la bbdd
