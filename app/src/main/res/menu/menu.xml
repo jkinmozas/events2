@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools" tools:context="com.example.joaquin.events.ListadoAcontecimientosActivity">
 
     <item android:id="@+id/configutation"
-        android:title="Configuracion"
+        android:title="@string/configuracion"
         android:orderInCategory="100"
         app:showAsAction="never"/>
     <item android:id="@+id/acerca_de"
-        android:title="Acerca de"
+        android:title="@string/acerca"
         android:orderInCategory="100"
         app:showAsAction="never" />
 </menu>

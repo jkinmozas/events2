@@ -1,9 +1,5 @@
 package com.example.joaquin.events;
 
-/**
- * Created by Joaquin on 07/02/2017.
- */
-
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;

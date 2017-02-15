@@ -89,8 +89,10 @@
     <string name="devby">Desarrollado por Joaquin Mozas</string>
     <string name="contact">Contacto</string>
     <string name="license">Licencia</string>
-    <string name="licenseType" translatable="false"></string>
+    <string name="licenseType" translatable="false">GPLv3</string>
     <string name="add">Añadir</string>
     <string name="language">Lenguaje</string>
     <string name="selectLanguaje">Seleccionar lenguaje</string>
+    <string name="configuracion">Configuracion</string>
+    <string name="acerca">Acerca de</string>
 </resources>

@@ -74,7 +74,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         // marcador del acontecimiento actual
         LatLng aconActual = new LatLng(latitudAcon, longitudAcon);
-        mMap.addMarker(new MarkerOptions().position(aconActual).title("Marker in Sydney"));
+        mMap.addMarker(new MarkerOptions().position(aconActual).title(nombreAcon));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(aconActual,16));
         if(cursorEvt.moveToFirst()){
             LatLng evt;

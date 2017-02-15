@@ -91,8 +91,10 @@
     <string name="contact">Contact</string>
     <string name="license">License</string>
     <string name="email" translatable="false">jkinmozas@gmail.com</string>
-    <string name="licenseType" translatable="false">GPLv3</string>
+    <string name="licenseType">GPLv3</string>
     <string name="add">Add</string>
     <string name="language">Language</string>
     <string name="selectLanguaje">Select language</string>
+    <string name="configuracion">Configuration</string>
+    <string name="acerca">About us</string>
 </resources>

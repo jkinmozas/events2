@@ -189,11 +189,11 @@ public class VerAcontecimientosActivity extends AppCompatActivity {
         super.onDestroy();
     }
     //FIN LOG
-    @Override
+   /* @Override
     public void onBackPressed() {
         this.startActivity(new Intent(this, ListadoAcontecimientosActivity.class));
         this.finish();
-    }
+    }*/
     @Override
     public boolean onNavigateUp() {
         this.startActivity(new Intent(this, ListadoAcontecimientosActivity.class));

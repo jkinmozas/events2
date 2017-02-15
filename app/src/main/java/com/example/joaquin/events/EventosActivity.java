@@ -17,6 +17,8 @@ public class EventosActivity extends AppCompatActivity implements ListadoEventsF
         setContentView(R.layout.activity_eventos);
 
 
+
+
         if(findViewById(R.id.unique_fragment)!= null){
             if(savedInstanceState == null){
                 ListadoEventsFragment listadoFrag = new ListadoEventsFragment();
@@ -43,5 +45,6 @@ public class EventosActivity extends AppCompatActivity implements ListadoEventsF
             transaction.commit();
         }
     }
+
 
 }
