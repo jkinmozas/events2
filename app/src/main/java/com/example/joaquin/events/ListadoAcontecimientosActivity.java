@@ -183,8 +183,7 @@ public class ListadoAcontecimientosActivity extends AppCompatActivity {
                                 getSharedPreferences("Ajustes", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = prefs.edit();
                         editor.putString("id", items.get(position).getId());
-                        //System.out.println(items.get(position));
-                        //System.out.println(items.get(position).getId());
+
                         editor.commit();
                         startActivity(new Intent(ListadoAcontecimientosActivity.this, VerAcontecimientosActivity.class));
                         MyLog.d(ACTIVITY, "Click en RecyclerView");
@@ -204,11 +203,13 @@ public class ListadoAcontecimientosActivity extends AppCompatActivity {
             }
         }
     }
+
     //LOG
     @Override
     protected void onStart() {
         MyLog.d(ACTIVITY,"onStart"); //creación del log del onStart
         super.onStart();
+        rellenarLista();
     }
 
     @Override
